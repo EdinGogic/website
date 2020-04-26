@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomeController@index');
+
+Route::get('products/displaygrid', 'productController@displaygrid')->name('products.displaygrid');
+
+Route::get('products/additem/{id}', 'productController@additem')->name('products.additem');
+
+Route::get('products/emptycart', 'productController@emptycart')->name('products.emptycart');
+
+Route::get('scorders/checkout', 'scorderController@checkout')->name('scorders.checkout');
+
+Route::post('scorders/placeorder', 'scorderController@placeorder')->name('scorders.placeorder');
+//Route::resource('scorders', 'scorderController');
+
+Route::resource('products', 'productController');
+
+//Route::resource('orderdetails', 'orderdetailController');
